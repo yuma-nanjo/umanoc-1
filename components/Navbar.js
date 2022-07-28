@@ -15,6 +15,7 @@ import React,{
   Stack,
   useColorMode,
   Center,
+  useBreakpointValue
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
@@ -37,7 +38,7 @@ export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box bg={useColorModeValue('gray.300', 'gray.700')} px={4}>
+      <Box bg={useColorModeValue('gray.300', 'gray.700')} px={4}  display={{ base: "none", md: "block" }}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box></Box>
           <Flex alignItems={'right'}>

@@ -10,10 +10,22 @@ import {
   Drawer,
   DrawerContent,
   Text,
-  useDisclosure,
   BoxProps,
   FlexProps,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+  Stack,
+  useColorMode,
+  Center,
+  Avatar,
+  Spacer,
 } from "@chakra-ui/react";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   FiHome,
   FiCode,
@@ -124,6 +136,7 @@ const NavItem = ({ icon, children, to, ...rest }) => {
 };
 
 const MobileNav = ({ onOpen, ...rest }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -142,10 +155,36 @@ const MobileNav = ({ onOpen, ...rest }) => {
         aria-label="open menu"
         icon={<FiMenu />}
       />
-
-      <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        umanoc
-      </Text>
+      <Spacer />
+      <Stack direction={"row"} spacing={7}>
+        <Button onClick={toggleColorMode}>
+          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+        </Button>
+        <Menu>
+          <MenuButton
+            as={Button}
+            rounded={"full"}
+            variant={"link"}
+            cursor={"pointer"}
+            minW={0}
+          >
+            <Avatar size={"sm"} src="profile.jpg" />
+          </MenuButton>
+          <MenuList alignItems={"center"}>
+            <br />
+            <Center>
+              <Avatar size={"2xl"} src="profile.jpg" />
+            </Center>
+            <br />
+            <Center>
+              <p>南條 友馬</p>
+            </Center>
+            <br />
+            <MenuDivider />
+            <MenuItem>Profile</MenuItem>
+          </MenuList>
+        </Menu>
+      </Stack>
     </Flex>
   );
 };
