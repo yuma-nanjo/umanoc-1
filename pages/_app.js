@@ -1,7 +1,18 @@
-import '../styles/globals.css'
+import { ChakraProvider } from "@chakra-ui/react";
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }) {
+  return (
+    <ChakraProvider>
+      <Sidebar>
+      <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </Sidebar>
+    </ChakraProvider>
+  );
 }
 
-export default MyApp
+export default App;
