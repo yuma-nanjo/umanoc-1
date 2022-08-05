@@ -30,24 +30,17 @@ export const images = [
     alt: 'Awesome watch',
   },
 ]
-export const products = [
+export const blogs = [
   {
     id: '1',
-    name: 'Bamboo Tan',
-    currency: 'USD',
-    price: 199,
-    flag: 'new',
+    title: 'Bamboo Tan',
     imageUrl:
       'https://images.unsplash.com/photo-1602024242516-fbc9d4fda4b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
-    rating: 4,
-    ratingCount: 1,
-    description:
-      'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
     images,
   },
   {
     id: '2',
-    name: 'Iconic Turquoise',
+    title: 'Iconic Turquoise',
     currency: 'USD',
     price: 199,
     salePrice: 179.99,
@@ -62,7 +55,7 @@ export const products = [
   },
   {
     id: '3',
-    name: 'Marble Leather',
+    title: 'Marble Leather',
     currency: 'USD',
     price: 199,
     imageUrl:
@@ -75,7 +68,7 @@ export const products = [
   },
   {
     id: '4',
-    name: 'Silve wolf',
+    title: 'Silve wolf',
     currency: 'GBP',
     price: 199,
     imageUrl:
@@ -88,7 +81,7 @@ export const products = [
   },
   {
     id: '5',
-    name: 'Silve wolf',
+    title: 'Silve wolf',
     currency: 'GBP',
     price: 199,
     imageUrl:
@@ -101,7 +94,7 @@ export const products = [
   },
   {
     id: '6',
-    name: 'Silve wolf',
+    title: 'Silve wolf',
     currency: 'GBP',
     price: 199,
     imageUrl:

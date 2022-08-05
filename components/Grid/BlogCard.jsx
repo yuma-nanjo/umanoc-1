@@ -2,6 +2,7 @@ import {
   AspectRatio,
   Box,
   Button,
+  HStack,
   Image,
   Link,
   Skeleton,
@@ -12,9 +13,9 @@ import {
 } from '@chakra-ui/react'
 import * as React from 'react'
 
-export const ProductCard = (props) => {
-  const { product, rootProps } = props
-  const { title, imageUrl} = product
+export const BlogCard = (props) => {
+  const { blog, rootProps } = props
+  const { title, imageUrl} = blog
   return (
     <Stack
       spacing={useBreakpointValue({
@@ -46,14 +47,14 @@ export const ProductCard = (props) => {
       </Stack>
       <Stack align="center">
         <Button colorScheme="blue">
-          何のボタンやこれ
+          詳細
         </Button>
         <Link
           textDecoration="underline"
           fontWeight="medium"
           color={useColorModeValue('gray.600', 'gray.400')}
         >
-          more details
+          Quick shop
         </Link>
       </Stack>
     </Stack>

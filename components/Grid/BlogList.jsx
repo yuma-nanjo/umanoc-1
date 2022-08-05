@@ -1,10 +1,10 @@
 import { Box } from '@chakra-ui/react'
 import * as React from 'react'
 import { ProductCard } from './ProductCard'
-import { blogs } from './_blogdata'
 import { ProductGrid } from './ProductGrid'
+import { client } from "../../libs/client"
 
-export const GridApp = () => (
+export const BlogList = ({blog}) => (
   <Box
     maxW="7xl"
     mx="auto"
@@ -20,8 +20,8 @@ export const GridApp = () => (
     }}
   >
     <ProductGrid>
-      {blogs.map((blog) => (
-        <ProductCard key={blog.id} product={blog} />
+      {blog.map((blog) => (
+        <ProductCard />
       ))}
     </ProductGrid>
   </Box>

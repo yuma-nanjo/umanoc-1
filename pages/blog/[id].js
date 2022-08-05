@@ -1,10 +1,24 @@
 import { client } from "../../libs/client";
+import Image from "next/image";
+import dayjs from "dayjs";
 
 export default function BlogId({ blog }) {
   return (
     <main>
       <h1>{blog.title}</h1>
-      <p>{blog.publishedAt}</p>
+      <p>{dayjs(blog.publishedAt).format("YYYY.MM.DD")}</p>
+      <p>{blog.category && `${blog.category.name}`}</p>
+      <div className="mt-12">
+        {blog.eyecatch ? (
+          <Image
+            src={blog.eyecatch.url}
+            width={blog.eyecatch.width}
+            height={blog.eyecatch.height}
+          />
+        ) : (
+          <Image src="/noimage.jpg" alt="No Image" width={100} height={100} />
+        )}
+      </div>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.content}`,
