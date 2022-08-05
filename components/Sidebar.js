@@ -41,7 +41,7 @@ const LinkItems = [
   { name: "Home", icon: FiHome, to: "/" },
   { name: "Work", icon: FiCode, to: "/work" },
   { name: "Blog", icon: FiBookOpen, to: "/blog" },
-  { name: "Book Review", icon: FiBook, to: "/book-review" },
+  { name: "Review", icon: FiBook, to: "/review" },
   { name: "Contact", icon: FiMail, to: "/contact" },
 ];
 

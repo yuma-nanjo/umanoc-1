@@ -56,7 +56,7 @@ export default function Nav() {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src="profile.jpg"
+                    src="/profile.jpg"
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -64,7 +64,7 @@ export default function Nav() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src="profile.jpg"
+                      src="/profile.jpg"
                     />
                   </Center>
                   <MenuDivider />

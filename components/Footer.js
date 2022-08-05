@@ -7,30 +7,27 @@ import {
   Text,
   useColorModeValue,
   VisuallyHidden,
-} from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+} from "@chakra-ui/react";
+import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}) => {
+const SocialButton = ({ children, label, href }) => {
   return (
     <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
+      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+      rounded={"full"}
       w={8}
       h={8}
-      cursor={'pointer'}
-      as={'a'}
+      cursor={"pointer"}
+      as={"a"}
       href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
+      display={"inline-flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}>
+        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
+      }}
+    >
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
     </chakra.button>
@@ -39,40 +36,47 @@ const SocialButton = ({
 
 export default function Footer() {
   return (
-    <Box
-      bg={useColorModeValue('gray.300', 'gray.700')}
-      color={useColorModeValue('gray.700', 'gray.200')}
-      position="absolute"
-      bottom="0"
-      right="0"
-      width="full">
-
       <Box
-        borderTopWidth={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.500', 'gray.300')}>
-        <Container
-          as={Stack}
-          maxW={'6xl'}
-          py={4}
-          direction={{ base: 'column', md: 'row' }}
-          spacing={4}
-          justify={{ base: 'center', md: 'space-between' }}
-          align={{ base: 'center', md: 'center' }}>
-          <Text>© 2022 umanoc. All rights reserved</Text>
-          <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
-              <FaTwitter />
-            </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
+        bg={useColorModeValue("gray.300", "gray.700")}
+        color={useColorModeValue("gray.700", "gray.200")}
+        direction="row"
+        justify="space-between"
+        mt={10}
+      >
+        <Box
+          borderTopWidth={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.500", "gray.300")}
+        >
+          <Container
+            as={Stack}
+            maxW={"6xl"}
+            py={4}
+            direction={{ base: "column", md: "row" }}
+            spacing={4}
+            justify={{ base: "center", md: "space-between" }}
+            align={{ base: "center", md: "center" }}
+          >
+            <Text>© 2022 umanoc. All rights reserved</Text>
+            <Stack direction={"row"} spacing={6}>
+              <SocialButton
+                label={"Twitter"}
+                href={"https://twitter.com/yuma_nanjo/"}
+              >
+                <FaTwitter />
+              </SocialButton>
+              {/* <SocialButton label={'YouTube'} href={'#'}>
               <FaYoutube />
-            </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
-              <FaInstagram />
-            </SocialButton>
-          </Stack>
-        </Container>
+            </SocialButton> */}
+              <SocialButton
+                label={"Instagram"}
+                href={"https://www.instagram.com/yuma_nanjo/"}
+              >
+                <FaInstagram />
+              </SocialButton>
+            </Stack>
+          </Container>
+        </Box>
       </Box>
-    </Box>
   );
 }

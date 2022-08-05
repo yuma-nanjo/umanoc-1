@@ -5,16 +5,16 @@ import { Box, SimpleGrid, Badge } from "@chakra-ui/react";
 import Image from "next/image";
 import dayjs from "dayjs";
 
-export default function Blog({ blog }) {
+export default function Review({review}) {
   const now = dayjs();
   return (
     <div>
       <Head>
-        <title>Blog | umanoc</title>
+        <title>Review | umanoc</title>
       </Head>
       <SimpleGrid minChildWidth="160px" spacing="10px">
-        {blog.map((blog) => (
-          <li className="list-none" key={blog.id}>
+        {review.map((review) => (
+          <li className="list-none" key={review.id}>
             <Box
               maxW="100%"
               maxH="100%"
@@ -22,18 +22,18 @@ export default function Blog({ blog }) {
               borderRadius="lg"
               overflow="hidden"
             >
-              <Link href={`/blog/${blog.id}`}>
+              <Link href={`/review/${review.id}`}>
                 <a>
-                  {blog.eyecatch ? (
+                  {review.cover ? (
                     <Image
-                      src={blog.eyecatch.url}
+                      src={review.cover.url}
                       width={768}
                       height={430}
                       layout="responsive"
                       objectFit="cover"
                       priority="false"
                       quality={100}
-                      alt={blog.title}
+                      alt={review.title}
                     />
                   ) : (
                     <Image
@@ -52,7 +52,7 @@ export default function Blog({ blog }) {
               <Box p="3">
                 <Box display="flex" alignItems="baseline">
                   {(() => {
-                    if (now.diff(dayjs(blog.publishedAt), "day") <= 7) {
+                    if (now.diff(dayjs(review.publishedAt), "day") <= 7) {
                       return (
                         <Badge borderRadius="full" px="2" colorScheme="cyan">
                           New
@@ -69,7 +69,7 @@ export default function Blog({ blog }) {
                     textTransform="uppercase"
                     ml="2"
                   >
-                    {dayjs(blog.publishedAt).format("YYYY.MM.DD")}
+                    {dayjs(review.publishedAt).format("YYYY.MM.DD")}
                   </Box>
                 </Box>
 
@@ -79,12 +79,12 @@ export default function Blog({ blog }) {
                   as="h1"
                   fontSize="xs"
                   lineHeight="tight"
-                  noOfLines={1}
+                  noOfLines={4}
                 >
-                  {blog.title}
+                  {review.title} / {review.author}(著)
                 </Box>
-                <Badge borderRadius="full" px="2" colorScheme="yellow">
-                  {blog.category && `${blog.category.name}`}
+                <Badge borderRadius="full" px="2" colorScheme="pink">
+                  {review.category && `${review.category.name}`}
                 </Badge>
 
                 <Box
@@ -95,7 +95,7 @@ export default function Blog({ blog }) {
                   lineHeight="tight"
                   noOfLines={1}
                 >
-                  {dayjs(blog.updatedAt).format("YYYY.MM.DD")} updated
+                  {dayjs(review.updatedAt).format("YYYY.MM.DD")} updated
                 </Box>
               </Box>
             </Box>
@@ -103,16 +103,17 @@ export default function Blog({ blog }) {
         ))}
       </SimpleGrid>
     </div>
-  );
+  )
 }
+
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "blog" });
+  const data = await client.get({ endpoint: "review" });
 
   return {
     props: {
-      blog: data.contents,
+      review: data.contents,
     },
   };
 };
