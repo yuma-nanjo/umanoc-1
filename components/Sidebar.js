@@ -33,6 +33,7 @@ import {
   FiMail,
   FiLogIn,
   FiMenu,
+  FiBook,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
 
@@ -40,6 +41,7 @@ const LinkItems = [
   { name: "Home", icon: FiHome, to: "/" },
   { name: "Work", icon: FiCode, to: "/work" },
   { name: "Blog", icon: FiBookOpen, to: "/blog" },
+  { name: "Book Review", icon: FiBook, to: "/book-review" },
   { name: "Contact", icon: FiMail, to: "/contact" },
 ];
 

@@ -67,11 +67,6 @@ export default function Nav() {
                       src="profile.jpg"
                     />
                   </Center>
-                  <br />
-                  <Center>
-                    <p>南條 友馬</p>
-                  </Center>
-                  <br />
                   <MenuDivider />
                   <MenuItem>Profile</MenuItem>
                 </MenuList>

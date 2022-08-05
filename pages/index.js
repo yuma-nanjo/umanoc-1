@@ -12,9 +12,9 @@ export default function Home({ blog }) {
       <Head>
         <title>Home | umanoc</title>
       </Head>
-      <SimpleGrid minChildWidth="260px" spacingX="20px" spacingY="20px">
+      <SimpleGrid minChildWidth="160px" spacing="10px">
         {blog.map((blog) => (
-          <li className="list-none" key={blog.title}>
+          <li className="list-none" key={blog.id}>
             <Box
               maxW="100%"
               maxH="100%"
@@ -22,39 +22,39 @@ export default function Home({ blog }) {
               borderRadius="lg"
               overflow="hidden"
             >
-              <div>
-                <Link href={`/blog/${blog.id}`}>
-                  <a>
-                    {blog.eyecatch ? (
-                      <Image
-                        src={blog.eyecatch.url}
-                        width={400}
-                        height={300}
-                        layout="responsive"
-                        objectFit="cover"
-                        priority="false"
-                        alt={blog.title}
-                      />
-                    ) : (
-                      <Image
-                        src="/noimage.jpg"
-                        alt="No Image"
-                        width={400}
-                        height={300}
-                        layout="responsive"
-                        objectFit="cover"
-                        priority="false"
-                      />
-                    )}
-                  </a>
-                </Link>
-              </div>
-              <Box p="6">
+              <Link href={`/blog/${blog.id}`}>
+                <a>
+                  {blog.eyecatch ? (
+                    <Image
+                      src={blog.eyecatch.url}
+                      width={768}
+                      height={430}
+                      layout="responsive"
+                      objectFit="cover"
+                      priority="false"
+                      quality={100}
+                      alt={blog.title}
+                    />
+                  ) : (
+                    <Image
+                      src="/noimage.jpg"
+                      alt="No Image"
+                      width={768}
+                      height={430}
+                      layout="responsive"
+                      objectFit="cover"
+                      priority="false"
+                      quality={100}
+                    />
+                  )}
+                </a>
+              </Link>
+              <Box p="3">
                 <Box display="flex" alignItems="baseline">
                   {(() => {
                     if (now.diff(dayjs(blog.publishedAt), "day") <= 7) {
                       return (
-                        <Badge borderRadius="full" px="2" colorScheme="teal">
+                        <Badge borderRadius="full" px="2" colorScheme="cyan">
                           New
                         </Badge>
                       );
@@ -69,9 +69,7 @@ export default function Home({ blog }) {
                     textTransform="uppercase"
                     ml="2"
                   >
-                    <p>
-                      {blog.title} beds &bull; {blog.id} baths
-                    </p>
+                    {dayjs(blog.publishedAt).format("YYYY.MM.DD")}
                   </Box>
                 </Box>
 
@@ -79,6 +77,7 @@ export default function Home({ blog }) {
                   mt="1"
                   fontWeight="semibold"
                   as="h1"
+                  fontSize="xs"
                   lineHeight="tight"
                   noOfLines={1}
                 >
@@ -88,15 +87,16 @@ export default function Home({ blog }) {
                   {blog.category && `${blog.category.name}`}
                 </Badge>
 
-                <Box>
-                  {dayjs(blog.publishedAt).format("YYYY.MM.DD")} updated
+                <Box
+                  mt="1"
+                  fontWeight="semibold"
+                  as="h1"
+                  fontSize="xx-small"
+                  lineHeight="tight"
+                  noOfLines={1}
+                >
+                  {dayjs(blog.updatedAt).format("YYYY.MM.DD")} updated
                 </Box>
-
-                {/* <div
-                  dangerouslySetInnerHTML={{
-                    __html: `${blog.content}`,
-                  }}
-                /> */}
               </Box>
             </Box>
           </li>

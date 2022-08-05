@@ -162,8 +162,8 @@ export default function ContactFormWithSocialButtons() {
                   </FormControl>
 
                   <Button
-                    colorScheme="blue"
-                    bg="blue.400"
+                    colorScheme="gray"
+                    bg="gray.400"
                     color="white"
                     _hover={{
                       bg: "gray.500",
