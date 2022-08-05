@@ -33,6 +33,7 @@ export default function Home({ blog }) {
                         layout="responsive"
                         objectFit="cover"
                         priority="false"
+                        alt={blog.title}
                       />
                     ) : (
                       <Image

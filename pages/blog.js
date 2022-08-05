@@ -1,5 +1,4 @@
 import Head from "next/head"
-import { GridApp } from "../components/Grid/GridApp"
 
 export default function Blog() {
   return (
@@ -7,7 +6,6 @@ export default function Blog() {
       <Head>
         <title>Blog | umanoc</title>
       </Head>
-      <GridApp />
     </div>
   )
 }

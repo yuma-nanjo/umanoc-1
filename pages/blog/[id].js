@@ -14,6 +14,7 @@ export default function BlogId({ blog }) {
             src={blog.eyecatch.url}
             width={blog.eyecatch.width}
             height={blog.eyecatch.height}
+            alt={blog.title}
           />
         ) : (
           <Image src="/noimage.jpg" alt="No Image" width={100} height={100} />
